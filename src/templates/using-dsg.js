@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 
 const UsingDSG = () => (
   <Layout>
-    <Seo title="Using DSG" />
+    <Seo title="Using DSG" description='Hello from a DSG Page.This page is not created until requested by a user.To learn more, head over to our documentation about Deferred Static Generation' />
     <h1>Hello from a DSG Page</h1>
     <p>This page is not created until requested by a user.</p>
     <p>
