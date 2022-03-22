@@ -31,7 +31,6 @@ function Seo({ description, lang, meta, title }) {
   return (
     <Helmet
       htmlAttributes={{
-        prefix: "og: http://ogp.me/ns#",
         lang,
       }}
       title={title}
