@@ -2,7 +2,6 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import video from "../images/video.mp4";
 
 const Header = ({ siteTitle }) => (
   <header
@@ -29,14 +28,6 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
-    </div>
-    <div>
-      <video
-        autoPlay
-        loop
-        muted>
-        <source  src={video} type="video/mp4" />
-      </video>
     </div>
   </header>
 )
