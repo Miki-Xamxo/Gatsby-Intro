@@ -3,8 +3,12 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { useLocation } from '@reach/router';
+
 
 const UsingSSR = ({ serverData }) => {
+  const location = useLocation();
+  console.log(location)
   return (
     <Layout>
       <Seo title="Using SSR" description='Welcome to a server side rendered page with a random dog photo'/>
