@@ -1,13 +1,18 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { useLocation } from '@reach/router';
+
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next'/>
+const IndexPage = () => {
+  const location = useLocation();
+  console.log(location) 
+
+  return <Layout>
+    <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -26,6 +31,6 @@ const IndexPage = () => (
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
   </Layout>
-)
+}
 
 export default IndexPage
