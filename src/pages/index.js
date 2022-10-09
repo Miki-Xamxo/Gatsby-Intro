@@ -6,8 +6,10 @@ import { useLocation } from '@reach/router';
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+// import Iframe from "../components/iframe";
+import loadable from '@loadable/component';
 
-const Iframe = React.lazy(() => import('../components/iframe'));
+const Iframe = loadable(() => import('../components/iframe'));
 
 
 const IndexPage = () => {
@@ -19,9 +21,7 @@ const IndexPage = () => {
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <React.Suspense fallback={<h1>Loading...</h1>}>
-    <Iframe />
-    </React.Suspense>
+    <Iframe fallback={<div>Loading...</div>} />
 
     <StaticImage
       src="../images/gatsby-astronaut.png"

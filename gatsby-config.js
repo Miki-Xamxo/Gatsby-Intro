@@ -24,6 +24,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-loadable-components-ssr',
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
