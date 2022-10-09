@@ -13,6 +13,8 @@ const UsingSSR = ({ serverData }) => {
     <Layout>
       <Seo title="Using SSR" description='Welcome to a server side rendered page with a random dog photo'/>
       <h1>SSR page</h1>
+      <h1>{location.pathname}</h1>
+
       <img
         style={{ width: "300px" }}
         alt="A random dog"
