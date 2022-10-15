@@ -11,17 +11,34 @@
 //     const dataLayer = window.dataLayer || []
 //     dataLayer.push({ "base.start": new Date().getTime(), event: "base.js" })
 // }
+  
+// export const onClientEntry = () => {
+//     // window.onload = () => {
+//     //     // addScript("https://www.youtube.com/embed/zi9GUHrQj2U")
+//     // }
+// }
 
-export const onInitialClientRender = () => { 
-    // let iframe = document.querySelectorAll('iframe[src]');
-    let iframe = document.querySelector('.iframe');
-    iframe.src = iframe.dataset.src
-    iframe.removeAttribute('data-src')
+// export const onInitialClientRender = () => {
+//     let iframe = document.querySelector('.iframe');
+//     iframe.src = iframe.dataset.src
+//     iframe.removeAttribute('data-src')
 
-    // iframe.forEach((v) => {
-    //     console.log(v)
+// //     // let iframe = document.querySelectorAll('iframe[src]');
+// //     let iframe = document.querySelector('.iframe');
+// //     window.onload = () => {
+// //         iframe.src = iframe.dataset.src
+// //         iframe.removeAttribute('data-src')
+// //     }
 
-    //     v.setAttribute('src', v.data);
-    //     v.removeAttribute('data');
-    // });
-}
+// //     // iframe.forEach((v) => {
+// //     //     console.log(v)
+
+// //     //     v.setAttribute('src', v.data);
+// //     //     v.removeAttribute('data');
+// //     // });
+    
+// //     // setTimeout(function() { 
+// //     //     const iframe = document.getElementsByClassName("iframe").dataset.src
+// //     //     console.log(iframe)
+// //     // }, 1000) 
+// }
