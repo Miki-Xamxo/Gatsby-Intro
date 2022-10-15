@@ -18,10 +18,12 @@
 //     // }
 // }
 
-// export const onInitialClientRender = () => {
-//     let iframe = document.querySelector('.iframe');
-//     iframe.src = iframe.dataset.src
-//     iframe.removeAttribute('data-src')
+export const onInitialClientRender = () => {
+    let iframe = document.querySelector('.iframe');
+    setTimeout(() => {
+        iframe.src = iframe.dataset.src
+        iframe.removeAttribute('data-src')
+    }, 1000);
 
 // //     // let iframe = document.querySelectorAll('iframe[src]');
 // //     let iframe = document.querySelector('.iframe');
@@ -41,4 +43,4 @@
 // //     //     const iframe = document.getElementsByClassName("iframe").dataset.src
 // //     //     console.log(iframe)
 // //     // }, 1000) 
-// }
+}
