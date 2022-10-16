@@ -1,3 +1,5 @@
+import 'lazysizes'
+
 /**
  * Implement Gatsby's Browser APIs in this file.
  *
@@ -22,9 +24,10 @@
 
 export const onInitialClientRender = () => {
     // console.log('ReactDOM.render has executed')
-    let iframe = document.querySelector('.iframe');
-    iframe.src = iframe.dataset.src
-    iframe.removeAttribute('data-src')    // console.log(document.readyState )
+    // let iframe = document.querySelector('.iframe');
+    // iframe.src = iframe.dataset.src
+    // iframe.removeAttribute('data-src')
+    // console.log(document.readyState )
     // setTimeout(() => {
     //     iframe.src = iframe.dataset.src
     //     iframe.removeAttribute('data-src')

@@ -25,6 +25,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     'gatsby-plugin-sitemap',
     'gatsby-plugin-loadable-components-ssr',
+    `gatsby-prismic-lazy-load`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
