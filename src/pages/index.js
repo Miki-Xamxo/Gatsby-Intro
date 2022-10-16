@@ -21,7 +21,9 @@ const IndexPage = () => {
 
   React.useEffect(() => {
     console.log('render')
-      setLoading(true)
+    setTimeout(() => {
+      setLoading(true)      
+    }, 1000);
   }, [])
 
   return <Layout>
