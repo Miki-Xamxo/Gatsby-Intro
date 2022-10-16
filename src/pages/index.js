@@ -17,7 +17,6 @@ const IndexPage = () => {
   const [laoding, setLoading] = React.useState(false)
 
   console.log(isSSR)
-  console.log(document.readyState )
 
 
   React.useEffect(() => {
