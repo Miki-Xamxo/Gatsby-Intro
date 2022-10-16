@@ -13,17 +13,22 @@
 // }
   
 // export const onClientEntry = () => {
+//     console.log(document.readyState )
+
 //     // window.onload = () => {
-//     //     // addScript("https://www.youtube.com/embed/zi9GUHrQj2U")
+//     //     console.log('ReactDOM.render has executed')
 //     // }
 // }
 
 export const onInitialClientRender = () => {
+    // console.log('ReactDOM.render has executed')
     let iframe = document.querySelector('.iframe');
-    setTimeout(() => {
-        iframe.src = iframe.dataset.src
-        iframe.removeAttribute('data-src')
-    }, 1000);
+    console.log(iframe)
+    // console.log(document.readyState )
+    // setTimeout(() => {
+    //     iframe.src = iframe.dataset.src
+    //     iframe.removeAttribute('data-src')
+    // }, 1000);
 
 // //     // let iframe = document.querySelectorAll('iframe[src]');
 // //     let iframe = document.querySelector('.iframe');
