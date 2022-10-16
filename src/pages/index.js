@@ -6,8 +6,8 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import loadable from '@loadable/component'
-// import Iframe from "../components/iframe";
-const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
+import Iframe from "../components/iframe";
+// const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
 
 
 
@@ -19,12 +19,12 @@ const IndexPage = () => {
   console.log(isSSR)
 
 
-  React.useEffect(() => {
-    console.log('render')
-    setTimeout(() => {
-      setLoading(true)      
-    }, 1000);
-  }, [])
+  // React.useEffect(() => {
+  //   console.log('render')
+  //   setTimeout(() => {
+  //     setLoading(true)      
+  //   }, 1000);
+  // }, [])
 
   return <Layout>
     <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
@@ -43,7 +43,7 @@ const IndexPage = () => {
       <embed width="640" height="360" src="http://player.vimeo.com/external/85569724.sd.mp4?s=43df5df0d733011263687d20a47557e4" className="youtube-player" type="text/html" allowscriptaccess="always" allowfullScreen="true"/>
     </object> */}
     {/* <iframe src={laoding ? 'https://player.vimeo.com/video/759133513?h=6fd9098f14&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479' : ''} width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="signax.mp4"></iframe> */}
-    {laoding && <Iframe />}
+    <Iframe />
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
