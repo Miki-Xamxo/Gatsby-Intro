@@ -1,4 +1,5 @@
 import 'lazysizes'
+// import loadable, { loadableReady } from '@loadable/component'
 
 /**
  * Implement Gatsby's Browser APIs in this file.
@@ -14,15 +15,35 @@ import 'lazysizes'
 //     dataLayer.push({ "base.start": new Date().getTime(), event: "base.js" })
 // }
   
-// export const onClientEntry = () => {
-//     console.log(document.readyState )
+export const onClientEntry = () => {
+    console.log(document.readyState)
+    
 
-//     // window.onload = () => {
-//     //     console.log('ReactDOM.render has executed')
-//     // }
-// }
+    // window.onunload = () => {
+    //     let iframe = document.querySelector('iframe');
+    //     console.log(iframe)
+
+    //     // console.log('ReactDOM.render has executed')
+    // }
+}
 
 export const onInitialClientRender = () => {
+    // loadableReady(() => {
+    //             console.log('ReactDOM.render has executed')
+    //     let iframe = document.querySelector('.iframe');
+    //     console.log(iframe)
+    //         iframe.src = iframe.dataset.src
+    // iframe.removeAttribute('data-src')
+    // })
+    // window.lod = () => {
+    //     console.log('ReactDOM.render has executed')
+    //     let iframe = document.querySelector('.iframe');
+    //     console.log(iframe)
+
+    // iframe.src = iframe.dataset.src
+    // iframe.removeAttribute('data-src')
+
+    // }
     // console.log('ReactDOM.render has executed')
     // let iframe = document.querySelector('.iframe');
     // iframe.src = iframe.dataset.src

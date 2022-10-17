@@ -5,8 +5,8 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import loadable from '@loadable/component'
-import Iframe from "../components/iframe";
+// import loadable, { loadableReady } from '@loadable/component'
+// import Iframe from "../components/iframe";
 // const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
 
 
@@ -14,32 +14,15 @@ import Iframe from "../components/iframe";
 
 const IndexPage = () => {
   const isSSR = typeof window !== "undefined";
+  const [laoding, setLoading] = React.useState(false)
 
   console.log(isSSR)
-  const iframeRef = React.useRef(null)
-  const [loading, setLoading] = React.useState(false)
 
-  const handleFieldView = (intersection) => {
-    const [IntersectionEntry] = intersection
-    if (IntersectionEntry.intersectionRatio) {
-      setLoading(true)
-    }
-  }
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver(handleFieldView, {
-      threshold: 0,
-    })
-    if (iframeRef.current) {
-      observer.observe(iframeRef.current)
-    }
-
-    return () => {
-      if (iframeRef.current) {
-        observer.unobserve(iframeRef.current)
-      }
-    }
-  }, [])
+  // React.useEffect(() => {
+  //   loadableReady(() => {
+  //     setLoading(true)
+  //   })
+  // }, [])
 
 
   // React.useEffect(() => {
@@ -54,9 +37,11 @@ const IndexPage = () => {
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
- 
-    {/* {laoding && <iframe className="iframe" width="560" height="315" data-src='https://www.youtube.com/embed/zi9GUHrQj2U?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zi9GUHrQj2U' title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>} */}
-    <iframe ref={iframeRef} loading="lazy" className="iframe" width="560" height="315" src={loading ? 'https://player.vimeo.com/video/59777392?loop=1&background=1': ''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    {/* <iframe loading="lazy" data-vimeo-defer src="https://player.vimeo.com/video/59777392" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="You'll never guess what this video is!" ></iframe> */}
+    <iframe className="lazyload"  loading="lazy" data-src="https://player.vimeo.com/video/59777392?&background=1&loop=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe>
+    {/* <iframe src="https://player.vimeo.com/video/757871918?transparent=true" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> */}
+    {/* {laoding && <iframe className="iframe" width="560" height="315" src='https://www.youtube.com/embed/zi9GUHrQj2U?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zi9GUHrQj2U' title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>} */}
+    {/* <iframe ref={iframeRef} loading="lazy" className="iframe" width="560" height="315" src={loading ? 'https://player.vimeo.com/video/59777392?loop=1&background=1': ''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
     {/* <video src={vimeo.srcset[0].link} controls autoPlay loop /> */}
 
     {/* <object width="640" height="360">
@@ -66,7 +51,7 @@ const IndexPage = () => {
       <embed width="640" height="360" src="http://player.vimeo.com/external/85569724.sd.mp4?s=43df5df0d733011263687d20a47557e4" className="youtube-player" type="text/html" allowscriptaccess="always" allowfullScreen="true"/>
     </object> */}
     {/* <iframe src={laoding ? 'https://player.vimeo.com/video/759133513?h=6fd9098f14&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479' : ''} width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="signax.mp4"></iframe> */}
-    {/* <Iframe /> */}
+    {/* {laoding && <Iframe />} */}
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
