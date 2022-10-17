@@ -5,9 +5,9 @@ import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-// import loadable, { loadableReady } from '@loadable/component'
+import loadable, { loadableReady } from '@loadable/component'
 // import Iframe from "../components/iframe";
-// const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
+const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
 
 
 
@@ -18,11 +18,10 @@ const IndexPage = () => {
 
   console.log(isSSR)
 
-  // React.useEffect(() => {
-  //   loadableReady(() => {
-  //     setLoading(true)
-  //   })
-  // }, [])
+  React.useEffect(() => {
+    if (typeof window === "undefined") return
+    window.addEventListener("load", setLoading(true))
+  }, [])
 
 
   // React.useEffect(() => {
@@ -38,7 +37,7 @@ const IndexPage = () => {
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     {/* <iframe loading="lazy" data-vimeo-defer src="https://player.vimeo.com/video/59777392" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="You'll never guess what this video is!" ></iframe> */}
-    <iframe className="lazyload"  loading="lazy" data-src="https://player.vimeo.com/video/59777392?&background=1&loop=1" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe>
+    <iframe className="iframe"  loading="lazy" src={!laoding ? '' : "https://player.vimeo.com/video/59777392?&background=1&loop=1"} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe>
     {/* <iframe src="https://player.vimeo.com/video/757871918?transparent=true" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> */}
     {/* {laoding && <iframe className="iframe" width="560" height="315" src='https://www.youtube.com/embed/zi9GUHrQj2U?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zi9GUHrQj2U' title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>} */}
     {/* <iframe ref={iframeRef} loading="lazy" className="iframe" width="560" height="315" src={loading ? 'https://player.vimeo.com/video/59777392?loop=1&background=1': ''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}

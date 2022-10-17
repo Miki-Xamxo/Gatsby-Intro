@@ -1,4 +1,5 @@
-import 'lazysizes'
+// import 'lazysizes'
+
 // import loadable, { loadableReady } from '@loadable/component'
 
 /**
@@ -14,7 +15,9 @@ import 'lazysizes'
 //     const dataLayer = window.dataLayer || []
 //     dataLayer.push({ "base.start": new Date().getTime(), event: "base.js" })
 // }
-  
+
+
+
 export const onClientEntry = () => {
     console.log(document.readyState)
     
@@ -28,6 +31,12 @@ export const onClientEntry = () => {
 }
 
 export const onInitialClientRender = () => {
+    // window.requestAnimationFrame(() => {
+    //     let iframe = document.querySelector('.iframe');
+    //     iframe.src = iframe.dataset.src
+    //     iframe.removeAttribute('data-src')
+    //     console.log(iframe)  
+    // })
     // loadableReady(() => {
     //             console.log('ReactDOM.render has executed')
     //     let iframe = document.querySelector('.iframe');
