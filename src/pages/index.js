@@ -19,8 +19,9 @@ const IndexPage = () => {
   console.log(isSSR)
 
   React.useEffect(() => {
-    if (typeof window === "undefined") return
-    window.addEventListener("load", setLoading(true))
+    if (typeof window !== "undefined") {
+      window.addEventListener("load", setLoading(true))
+    }
   }, [])
 
 
