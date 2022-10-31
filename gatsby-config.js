@@ -23,8 +23,9 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    'gatsby-plugin-sitemap',
+    // 'gatsby-plugin-sitemap',
     'gatsby-plugin-loadable-components-ssr',
+    `gatsby-plugin-advanced-sitemap`,
     `gatsby-prismic-lazy-load`,
     {
       resolve: 'gatsby-plugin-robots-txt',
