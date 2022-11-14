@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import scrollTo from 'gatsby-plugin-smoothscroll';
+import smoothscroll from 'smoothscroll-polyfill'
+// import scrollTo from 'gatsby-plugin-smoothscroll';
 
 
 
@@ -28,15 +29,12 @@ const IndexPage = () => {
   }, [])
 
   const handleScroll = () => {
-    scrollTo('#image')
-
-    if (ref.current) {
-      // window.scrollTo({
-      //   top: 600,
-      //   left: 0,
-      //   behavior: 'smooth',
-      // })
-    }
+    smoothscroll.polyfill()
+      window.scrollTo({
+        top: 800,
+        left: 0,
+        behavior: 'smooth',
+      })
   }
 
 
@@ -49,14 +47,14 @@ const IndexPage = () => {
 
   return <Layout>
     <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
-    <button onClick={() => scrollTo('#image')}>200px</button>
+    <button onClick={handleScroll}>200px</button>
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     {/* <iframe loading="lazy" data-vimeo-defer src="https://player.vimeo.com/video/59777392" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="You'll never guess what this video is!" ></iframe> */}
-    <iframe className="iframe"  loading="lazy" src={!laoding ? '' : "https://player.vimeo.com/video/59777392?&background=1&loop=1"} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe>
+    {/* <iframe className="iframe"  loading="lazy" src={!laoding ? '' : "https://player.vimeo.com/video/59777392?&background=1&loop=1"} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe> */}
     {/* <iframe src="https://player.vimeo.com/video/757871918?transparent=true" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> */}
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cXYVYK_s5Ro?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;disablekb=1&amp;modestbranding=1&amp;mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cXYVYK_s5Ro?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;disablekb=1&amp;modestbranding=1&amp;mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
     {/* {laoding && <iframe className="iframe" width="560" height="315" src='https://www.youtube.com/embed/zi9GUHrQj2U?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zi9GUHrQj2U' title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>} */}
     {/* <iframe ref={iframeRef} loading="lazy" className="iframe" width="560" height="315" src={loading ? 'https://player.vimeo.com/video/59777392?loop=1&background=1': ''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
     {/* <video src={vimeo.srcset[0].link} controls autoPlay loop /> */}
@@ -86,14 +84,14 @@ const IndexPage = () => {
     </p>
     <div>
       <StaticImage
-      ref={ref}
       src="../images/gatsby-astronaut.png"
       width={1500}
       quality={95}
       formats={["auto", "webp", "avif"]}
       alt="A Gatsby astronaut"
       style={{ marginBottom: `1.45rem` }}
-    />    </div>
+      />
+    </div>
   </Layout>
 }
 

@@ -27,7 +27,7 @@ module.exports = {
     'gatsby-plugin-loadable-components-ssr',
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-prismic-lazy-load`,
-    `gatsby-plugin-smoothscroll`,
+    // `gatsby-plugin-smoothscroll`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
