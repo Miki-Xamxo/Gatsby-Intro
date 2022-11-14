@@ -28,7 +28,7 @@ const IndexPage = () => {
   const handleScroll = () => {
     if (ref.current) {
       window.scrollTo({
-        top: 400,
+        top: 600,
         left: 0,
         behavior: 'smooth',
       })
@@ -79,7 +79,15 @@ const IndexPage = () => {
       <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
-    <div ref={ref}>Скролл</div>
+    <div ref={ref}>
+    <StaticImage
+      src="../images/gatsby-astronaut.png"
+      width={1500}
+      quality={95}
+      formats={["auto", "webp", "avif"]}
+      alt="A Gatsby astronaut"
+      style={{ marginBottom: `1.45rem` }}
+    />    </div>
   </Layout>
 }
 
