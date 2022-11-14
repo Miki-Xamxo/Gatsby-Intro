@@ -28,6 +28,7 @@ const IndexPage = () => {
   }, [])
 
   const handleScroll = () => {
+    alert('click')
     window.scrollTo({
       top: 800,
       behavior: 'smooth',
