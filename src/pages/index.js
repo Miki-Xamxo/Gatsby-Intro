@@ -15,6 +15,7 @@ const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
 const IndexPage = () => {
   const isSSR = typeof window !== "undefined";
   const [laoding, setLoading] = React.useState(false)
+  const ref = React.useRef(null)
 
   console.log(isSSR)
 
@@ -23,6 +24,16 @@ const IndexPage = () => {
       window.addEventListener("load", setLoading(true))
     }
   }, [])
+
+  const handleScroll = () => {
+    if (ref.current) {
+      window.scrollTo({
+        top: 400,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }
+  }
 
 
   // React.useEffect(() => {
@@ -34,12 +45,14 @@ const IndexPage = () => {
 
   return <Layout>
     <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
+    <button onClick={handleScroll}>200px</button>
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     {/* <iframe loading="lazy" data-vimeo-defer src="https://player.vimeo.com/video/59777392" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="You'll never guess what this video is!" ></iframe> */}
     <iframe className="iframe"  loading="lazy" src={!laoding ? '' : "https://player.vimeo.com/video/59777392?&background=1&loop=1"} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe>
     {/* <iframe src="https://player.vimeo.com/video/757871918?transparent=true" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> */}
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/cXYVYK_s5Ro?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;disablekb=1&amp;modestbranding=1&amp;mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     {/* {laoding && <iframe className="iframe" width="560" height="315" src='https://www.youtube.com/embed/zi9GUHrQj2U?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zi9GUHrQj2U' title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>} */}
     {/* <iframe ref={iframeRef} loading="lazy" className="iframe" width="560" height="315" src={loading ? 'https://player.vimeo.com/video/59777392?loop=1&background=1': ''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
     {/* <video src={vimeo.srcset[0].link} controls autoPlay loop /> */}
@@ -60,12 +73,13 @@ const IndexPage = () => {
       alt="A Gatsby astronaut"
       style={{ marginBottom: `1.45rem` }}
     />
-    <p>
+    <p ref={ref}>
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
       <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
+    <div ref={ref}>Скролл</div>
   </Layout>
 }
 

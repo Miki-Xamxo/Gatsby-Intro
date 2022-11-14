@@ -31,6 +31,7 @@ module.exports = {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         resolveEnv: () => NETLIFY_ENV,
+        sitemap: '/sitemap/sitemap-0.xml',
         env: {
           production: {
             policy: [{userAgent: '*', allow: '/'}]
