@@ -16,18 +16,14 @@
 //     dataLayer.push({ "base.start": new Date().getTime(), event: "base.js" })
 // }
 
+import smoothscroll from 'smoothscroll-polyfill'
+
+
 
 
 export const onClientEntry = () => {
-    console.log(document.readyState)
-    
-
-    // window.onunload = () => {
-    //     let iframe = document.querySelector('iframe');
-    //     console.log(iframe)
-
-    //     // console.log('ReactDOM.render has executed')
-    // }
+    // console.log(document.readyState)
+    smoothscroll.polyfill()
 }
 
 export const onInitialClientRender = () => {

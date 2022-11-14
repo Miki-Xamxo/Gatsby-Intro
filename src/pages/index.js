@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import smoothscroll from 'smoothscroll-polyfill'
 // import scrollTo from 'gatsby-plugin-smoothscroll';
 
 
@@ -29,12 +28,10 @@ const IndexPage = () => {
   }, [])
 
   const handleScroll = () => {
-    smoothscroll.polyfill()
-      window.scrollTo({
-        top: 800,
-        left: 0,
-        behavior: 'smooth',
-      })
+    window.scrollTo({
+      top: 800,
+      behavior: 'smooth',
+    })
   }
 
 
