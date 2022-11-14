@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import scrollTo from 'gatsby-plugin-smoothscroll';
+
 
 
 import Layout from "../components/layout"
@@ -26,12 +28,14 @@ const IndexPage = () => {
   }, [])
 
   const handleScroll = () => {
+    scrollTo('#image')
+
     if (ref.current) {
-      window.scrollTo({
-        top: 600,
-        left: 0,
-        behavior: 'smooth',
-      })
+      // window.scrollTo({
+      //   top: 600,
+      //   left: 0,
+      //   behavior: 'smooth',
+      // })
     }
   }
 
@@ -45,7 +49,7 @@ const IndexPage = () => {
 
   return <Layout>
     <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
-    <button onClick={handleScroll}>200px</button>
+    <button onClick={() => scrollTo('#image')}>200px</button>
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -69,18 +73,20 @@ const IndexPage = () => {
       src="../images/gatsby-astronaut.png"
       width={300}
       quality={95}
+      id='image'
       formats={["auto", "webp", "avif"]}
       alt="A Gatsby astronaut"
       style={{ marginBottom: `1.45rem` }}
     />
-    <p ref={ref}>
+    <p>
       <Link to="/page-2/">Go to page 2</Link> <br />
       <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
       <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
       <Link to="/using-dsg">Go to "Using DSG"</Link>
     </p>
-    <div ref={ref}>
-    <StaticImage
+    <div>
+      <StaticImage
+      ref={ref}
       src="../images/gatsby-astronaut.png"
       width={1500}
       quality={95}

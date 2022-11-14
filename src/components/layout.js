@@ -8,7 +8,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import smoothscroll from 'smoothscroll-polyfill'
 
 
 import Header from "./header"
@@ -35,7 +34,6 @@ const Layout = ({ children }) => {
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleWindowSizeChange)
-      smoothscroll.polyfill()
 
       return () => {
         window.removeEventListener('resize', handleWindowSizeChange)
