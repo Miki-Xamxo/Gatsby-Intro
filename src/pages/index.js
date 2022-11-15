@@ -27,7 +27,15 @@ const IndexPage = () => {
     }
   }, [])
 
-  const handleScroll = () => {
+  // const handleScroll = () => {
+  //   alert('click')
+  //   window.scrollTo({
+  //     top: 800,
+  //     behavior: 'smooth',
+  //   })
+  // }
+
+  function handleScroll() {
     alert('click')
     window.scrollTo({
       top: 800,
