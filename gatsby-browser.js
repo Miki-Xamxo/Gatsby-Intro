@@ -16,15 +16,14 @@
 //     dataLayer.push({ "base.start": new Date().getTime(), event: "base.js" })
 // }
 
-import smoothscroll from 'smoothscroll-polyfill'
+// import smoothscroll from 'smoothscroll-polyfill'
 
 
 
 
-export const onClientEntry = () => {
-    // console.log(document.readyState)
-    smoothscroll.polyfill()
-}
+// export const onClientEntry = () => {
+//     smoothscroll.polyfill()
+// }
 
 export const onInitialClientRender = () => {
     // window.requestAnimationFrame(() => {
