@@ -43,7 +43,8 @@ const IndexPage = () => {
     })
   }
 
-  function onClickTwo() {
+  function onClickTwo(e) {
+    e.preventDefault();
     alert('click two')
   }
 
@@ -58,7 +59,7 @@ const IndexPage = () => {
   return <Layout>
     <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
     <button onClick={handleScroll}>200px</button>
-    <p onClick={onClickTwo}>onClick two</p>
+    <a onClick={onClickTwo}>onClick two</a>
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
