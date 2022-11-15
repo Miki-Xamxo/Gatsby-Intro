@@ -43,6 +43,10 @@ const IndexPage = () => {
     })
   }
 
+  function onClickTwo() {
+    alert('click two')
+  }
+
 
   // React.useEffect(() => {
   //   console.log('render')
@@ -54,6 +58,7 @@ const IndexPage = () => {
   return <Layout>
     <Seo title="Home" description='Welcome to your new Gatsby site. Kick off your next' />
     <button onClick={handleScroll}>200px</button>
+    <p onClick={onClickTwo}>onClick two</p>
     <h1>Hi people One</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
