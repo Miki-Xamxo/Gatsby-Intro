@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-// import scrollTo from 'gatsby-plugin-smoothscroll';
+import { useInView } from 'react-intersection-observer'
 
 
 
@@ -17,9 +17,16 @@ const Iframe = loadable(() => import('../components/iframe'), { ssr: false })
 const IndexPage = () => {
   const isSSR = typeof window !== "undefined";
   const [laoding, setLoading] = React.useState(false)
-  const ref = React.useRef(null)
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: '20%',
+  })
 
-  console.log(isSSR)
+  React.useEffect(() => {
+    if (inView) {
+      setLoading(true)
+    }
+  }, [inView])
 
   React.useEffect(() => {
     if (typeof window !== "undefined") {
@@ -48,6 +55,8 @@ const IndexPage = () => {
     alert('click two')
   }
 
+  console.log(laoding)
+
 
   // React.useEffect(() => {
   //   console.log('render')
@@ -66,7 +75,7 @@ const IndexPage = () => {
     {/* <iframe loading="lazy" data-vimeo-defer src="https://player.vimeo.com/video/59777392" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="You'll never guess what this video is!" ></iframe> */}
     {/* <iframe className="iframe"  loading="lazy" src={!laoding ? '' : "https://player.vimeo.com/video/59777392?&background=1&loop=1"} frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullScreen title="You'll never guess what this video is!" ></iframe> */}
     {/* <iframe src="https://player.vimeo.com/video/757871918?transparent=true" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> */}
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cXYVYK_s5Ro?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;disablekb=1&amp;modestbranding=1&amp;mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/cXYVYK_s5Ro?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;disablekb=1&amp;modestbranding=1&amp;mute=1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
     {/* {laoding && <iframe className="iframe" width="560" height="315" src='https://www.youtube.com/embed/zi9GUHrQj2U?controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=zi9GUHrQj2U' title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>} */}
     {/* <iframe ref={iframeRef} loading="lazy" className="iframe" width="560" height="315" src={loading ? 'https://player.vimeo.com/video/59777392?loop=1&background=1': ''} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> */}
     {/* <video src={vimeo.srcset[0].link} controls autoPlay loop /> */}
@@ -79,6 +88,10 @@ const IndexPage = () => {
     </object> */}
     {/* <iframe src={laoding ? 'https://player.vimeo.com/video/759133513?h=6fd9098f14&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479' : ''} width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="signax.mp4"></iframe> */}
     {/* {laoding && <Iframe />} */}
+    {/* <video               autoPlay
+              loop
+              muted
+              playsInline src="https://player.vimeo.com/progressive_redirect/playback/725598812/rendition/720p/file.mp4?loc=external&amp;oauth2_token_id=1269526533&amp;signature=d88c6df5e7d4b6210c78486ddc486703c3ae677c385a243e6bf2560376fd6e1b"></video> */}
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -104,6 +117,7 @@ const IndexPage = () => {
       style={{ marginBottom: `1.45rem` }}
       />
     </div>
+  <span ref={ref}>Hello</span>
   </Layout>
 }
 
